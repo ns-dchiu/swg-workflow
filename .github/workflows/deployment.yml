@@ -24,5 +24,4 @@ jobs:
         separator: "/"
     # Runs a single command using the runners shell
     - name: Send greeting
-      run:
-      - echo "Hello ${{ steps.branch.outputs._2 }}"
+      run: echo "Hello ${{ steps.branch.outputs._2 }}"
