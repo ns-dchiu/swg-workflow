@@ -31,4 +31,4 @@ jobs:
         echo "Environment: ${{ steps.branch.outputs._1 }}"
         echo "Pop: ${{ steps.branch.outputs._2 }}"
         echo "Version: ${{ steps.branch.outputs._3 }}"
-        bash -x ./scripts/triggerDeployment.sh ${{ steps.branch.outputs._1 }} ${{ steps.branch.outputs._2 }} ${{ steps.branch.outputs._3 }} $JEKINES_SECRET
+        bash ./scripts/triggerDeployment.sh ${{ steps.branch.outputs._1 }} ${{ steps.branch.outputs._2 }} ${{ steps.branch.outputs._3 }} $JEKINES_SECRET
