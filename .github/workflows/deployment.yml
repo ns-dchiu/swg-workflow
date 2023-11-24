@@ -17,10 +17,12 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - name: Extract branch name
-      shell: bash
-      run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
-      id: extract_branch
+    - uses: jungwinter/split@master
+        id: branch
+        with:
+          msg: ${{ github.ref_name }}
+          separator: "/"
     # Runs a single command using the runners shell
     - name: Send greeting
-      run: echo "Hello ${{ steps.extract_branch.outputs.branch }}"
+      run:
+      - echo "Hello ${{ steps.branch.outputs._2 }}"
