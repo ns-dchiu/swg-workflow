@@ -24,7 +24,10 @@ jobs:
         separator: "/"
     # Runs a single command using the runners shell
     - name: Triggger deployment
+      env:
+        JEKINES_SECRET: ${{ secrets.JENKINS }}
       run: |
         echo "Environment: ${{ steps.branch.outputs._1 }}"
         echo "Pop: ${{ steps.branch.outputs._2 }}"
         echo "Version: ${{ steps.branch.outputs._3 }}"
+        ./triggerDeployment.sh ${{ steps.branch.outputs._1 }} ${{ steps.branch.outputs._2 }} ${{ steps.branch.outputs._3 }} $JEKINES_SECRET
