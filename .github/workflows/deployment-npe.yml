@@ -1,18 +1,11 @@
-# This is a basic workflow that is manually triggered
-
-name: SWG Deployment Workflow for non-production environment
-# Controls when the action will run. Workflow runs when manually triggered using the UI
-# or API.
 on:
   push:
     branches:
     - 'deploy/npe/**'
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "greet"
   deployment:
-    # The type of runner that the job will run on
+    run-name: Deploy to ${{ github.ref }} by @${{ github.actor }}
     runs-on: self-hosted
     environment: non-production
     
