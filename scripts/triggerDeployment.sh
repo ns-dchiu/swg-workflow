@@ -15,7 +15,7 @@ curl https://cdjenkins.npe.nettools.iad0.nskope.net/job/one_button_swg-api-servi
 	-d CLUSTER_NAME=c1 \
 	-d BYPASS_JIRA=YES \
 	-d BYPASS_MONITORING_RESULT=YES \
-	-d ARTIFACTORY_PATH=artifactory-rd.netskope.io -k -s -D - -o /dev/null | tee result_output
+	-d ARTIFACTORY_PATH=artifactory-rd.netskope.io -k -s -D - -o /dev/null > result_output
 
 if cat result_output | grep -q "HTTP/2 201"
 then
