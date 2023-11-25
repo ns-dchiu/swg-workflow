@@ -1,3 +1,5 @@
+run-name: Deploy to ${{ github.ref }} by @${{ github.actor }}
+
 on:
   push:
     branches:
@@ -5,7 +7,6 @@ on:
 
 jobs:
   deployment:
-    run-name: Deploy to ${{ github.ref }} by @${{ github.actor }}
     runs-on: self-hosted
     environment: non-production
     
